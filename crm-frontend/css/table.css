@@ -1,0 +1,454 @@
+.table-container {
+  margin: 0 auto 40px;
+  padding: 0 90px;
+  width: 100%;
+  max-width: 1366px;
+  overflow: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-caption {
+  display: block;
+  margin-bottom: 26px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  text-align: left;
+}
+
+.table-header {
+  padding: 0 20px 8px;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+.js-table-sorting {
+  cursor: pointer;
+}
+
+.table-header, 
+.txt-grey,
+.table-cell__time {
+  color: var(--text-grey);
+}
+
+.table-header-text {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+.table-header-arrow {
+  position: relative;
+  top: 3px;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url('/img/table/sorting_arrow.svg');
+  opacity: 0.5;
+  transform: rotate(180deg);
+  transition-property:  transform, opacity;
+  transition-duration: .2s;
+  transition-timing-function: ease-in;
+}
+
+.table-header-active {
+  color: var(--purp-main);
+}
+
+.table-header-active .table-header-arrow {
+  opacity: 1;
+}
+
+.table-header-active_reverse .table-header-arrow {
+  transform: rotate(0deg);
+}
+
+.table-header_fullname::after {
+  position: relative;
+  top: 1px;
+  content: 'А-Я';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.table-header_fullname.table-header-active_reverse::after {
+  content: 'Я-А';
+}
+
+.table-header_active-sorting {
+  color: var(--purp-main);
+}
+
+.table-body {
+  position: relative;
+  background: #FFF; 
+}
+
+.table-row {
+  height: 60px;
+  border-bottom: 1px solid var(--background-grey);
+}
+
+.empty-row {
+  position: relative;
+  height: 300px;
+  padding: 20px;
+  text-align: center;
+}
+
+.empty-row__loader-wrapper {
+  display: inline-block;
+  position: absolute;
+  width: 86px;
+  height: 86px;
+  transform: translate(-50%, -50%);
+}
+
+.table-cell {
+  padding: 10px 20px;
+}
+
+.table-cell__dateWrapper {
+  display: flex;
+}
+
+.table-cell__date {
+  margin-right: 10px;
+}
+
+.table-cell__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 7px;
+}
+
+.table-cell button:not(:last-child) {
+  margin-right: 30px;
+}
+
+.contacts-icon {
+  width: 16px;
+  height: 16px;
+  font-weight: 600;
+  font-size: 8px;
+  line-height: 14px;
+  text-align: center;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: .7;
+}
+
+.contacts-icon:hover,
+.contacts-icon:focus {
+  opacity: 1;
+}
+
+.contacts-icon_button {
+  background-image: none;
+  border: 1px solid var(--purp-main);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.contacts-icon_phone {
+  background-image: url('/img/contacts-type/phone.svg');
+}
+.contacts-icon_facebook {
+  background-image: url('/img/contacts-type/fb.svg');
+}
+.contacts-icon_vk {
+  background-image: url('/img/contacts-type/vk.svg');
+}
+.contacts-icon_email {
+  background-image: url('/img/contacts-type/mail.svg');
+}
+.contacts-icon_another {
+  background-image: url('/img/contacts-type/another.svg');
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: initial;
+}
+
+.tooltiptext {
+  position: absolute;
+  padding: 7px 14px;
+  visibility: hidden;
+  width: max-content;
+  bottom: 150%;
+  left: 50%;
+  background-color:var(--text-black);
+  text-align: center;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  color: #fff;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext,
+.tooltip:focus .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 99%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--text-black) transparent transparent transparent;
+}
+
+.tooltip .tooltip-delete {
+  bottom: 90%;
+}
+
+.buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 189px;
+}
+
+.button-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.button-wrapper:not(:last-child) {
+  margin-right: 1em;
+}
+
+.button-loader {
+  position: absolute;
+  left: 4px;
+  width: 15px;
+  height: 15px;
+}
+
+.client-button {
+  padding-left: 21px;
+  position: relative;
+}
+
+.button-loader_modify {
+  background-image: url('/img/table/edit-client.svg');
+}
+
+.button-loader_delete {
+  background-image: url('/img/table/delete-client.svg');
+}
+
+.client-button_modify:hover,
+.client-button_modify:focus {
+  color: var(--purp-main);
+}
+
+.client-button_delete:hover,
+.client-button_delete:focus {
+  color: var(--alert);
+}
+
+.add-client-button {
+  display: block;
+  margin: 0 auto;
+  padding: 14px 26.5px;
+  color: var(--purp-main);
+  border: 1px solid var(--purp-main);
+  transition-property: background-color, color;
+  transition-duration: .2s;
+  transition-timing-function: ease-in;
+}
+
+.add-client-button:hover,
+.add-client-button:focus {
+  color: #fff;
+  background-color: var(--purp-hover);
+}
+
+.add-client-button:active {
+  background-color: var(--purp-active);
+}
+
+.add-client-button__content {
+  padding-left: 32px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  background-image: url('/img/table/add_client_button.svg');
+  background-position: left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition-property: background-image;
+  transition-duration: .2s;
+  transition-timing-function: ease-in;
+}
+
+.add-client-button:hover .add-client-button__content,
+.add-client-button:focus .add-client-button__content {
+  background-image: url('/img/table/add_client_button_hover.svg');
+}
+
+.loading-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('/img/table/loader.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: circle 1.5s infinite linear;
+}
+
+.loading-circle_min {
+  background-image: url('/img/table/loader-min.svg');
+}
+
+.loading-circle_white {
+  background-image: url('/img/table/loader-white.svg');
+}
+
+.loading-circle_white-big {
+  background-image: url('/img/table/loader-white-big.svg');
+}
+
+.loading-circle_red {
+  background-image: url('/img/table/loader-red.svg');
+}
+
+@keyframes circle {
+   100% {transform: rotate(360deg);}
+  }
+
+
+
+@media (max-width: 1200px) {
+  .table-container {
+    padding: 0 20px;
+  }
+
+  .table-caption {
+    margin-bottom: 10px;
+  }
+
+  .table-cell {
+    padding: 10px;
+  }
+  .table-cell:first-child {
+    padding-left: 20px;
+  }
+  .table-cell:last-child {
+    padding-right: 20px;
+  }
+
+  .table-header {
+    padding: 0 10px 8px;
+  }
+  .table-header:first-child {
+    padding-left: 20px;
+  }
+  .table-header:last-child {
+    padding-right: 20px;
+  }
+  
+  .table-header_fullname::before {
+    left: 163px;
+  }
+
+  .empty-row__loader-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+ @media (max-width: 900px) {
+  .table-cell__dateWrapper,
+  .buttons-wrapper {
+    flex-direction: column;
+  }
+
+  .button-wrapper:not(:last-child) {
+    margin-bottom: 5px;
+    margin-right: 0;
+  }
+}  
+
+@media (max-width: 480px) {
+  .table-container  {
+    padding: 0 10px;
+  }
+
+  .table-caption {
+    margin-bottom: 4px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+  }
+}
+
+.copy-button {
+  position: absolute;
+  top: center;
+  left: 4px;
+  height: 16px;
+  background-color: initial;
+  background-image: url('/img/table/send6.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+  font-size: 0;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: .2s;
+  transition-timing-function: ease-in;
+  cursor: pointer;
+}
+
+.table-row:hover .copy-button,
+.copy-button:focus {
+  opacity: 1;
+}
+
+.copy-button:focus {
+  outline: 1px solid var(--purp-main);
+  outline-offset: 2px;
+}
+
+.tooltip-copy {
+  position: absolute;
+  padding: 5px 6px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 12px;
+  color: #fff;
+  background-color:var(--text-black);
+  transform: translateX(-50%);
+  opacity: 0;
+  transition-property:  opacity;
+  transition-duration: .2s;
+  transition-timing-function: ease-in;
+  z-index: 1;
+}
+
+.tooltip-copy_active {
+  opacity: 1;
+}

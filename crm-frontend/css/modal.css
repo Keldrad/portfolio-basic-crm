@@ -1,0 +1,407 @@
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  background-color: rgba(51, 51, 51, .6);
+  transition-property:  opacity;
+  transition-duration: .3s;
+  transition-timing-function: ease-in;
+}
+
+.modal_visible {
+  overflow-y: auto;
+  opacity: 1;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.modal-window {
+  position: relative;
+  margin: 20px 0;
+  padding:30px 0;
+  left: 50%;
+  width: 450px;
+  background-color: #FFF;
+  z-index: 10;
+  transform: translateX(-50%);
+  transform: translateX(-50%) scale(0, 0) ;
+  transform-origin: top left;
+  transition-property:  transform, opacity;
+  transition-duration: .3s;
+  transition-timing-function: ease-in;
+}
+
+.modal_visible .modal-window  {
+  transform: translateX(-50%) scale(1, 1);
+}
+
+.modal-window-blocker {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, .3);  
+  transition-property:  opacity;
+  transition-duration: .2s;
+  transition-timing-function: ease-in;
+  z-index: 20;
+  opacity: 0;
+}
+
+
+.blocker-loader-wrapper {
+  position: relative;
+  width: 90px;
+  height: 90px;
+}
+
+.close-modal-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  background-image: url('/img/modal/close_modal.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: .6;
+  transition-property:  opacity;
+  transition-duration: .1s;
+  transition-timing-function: ease-in;
+}
+
+.close-modal-button:hover, 
+.close-modal-button:focus {
+  opacity: 1;
+}
+
+.modal-client {
+  display: flex;
+  height: auto;
+  align-items: baseline;
+  flex-direction: column;
+}
+
+.modal-client__form {
+  padding: 0 30px;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.modal-client_delete {
+  padding: 22px 0 27px;
+  align-items: center;
+}
+
+.modal-client__header {
+  display: inline-block;
+  margin-right: 9px;
+  margin-bottom: 32px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  align-self: initial;
+}
+
+.modal-client__id {
+  display: inline-block;
+  visibility: hidden;
+  color: var(--text-grey);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.modal-client__header_delete {
+  margin-bottom: 11px;
+}
+
+.modal-delete-client__text {
+  max-width: 275px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.modal-client__confirm-button {
+  position: relative;
+  margin: 0 auto 5px;
+  padding: 12.5px 35px;
+  background-color: var(--purp-main);
+  color: #FFF;
+  transition-property: background-color;
+  transition-duration: .2s;
+  transition-timing-function: ease-in;
+}
+
+.modal-client__confirm-button:hover,
+.modal-client__confirm-button:focus {
+  background-color: var(--purp-hover);
+}
+
+.modal-client__confirm-button:active {
+  background-color: var(--purp-active);
+}
+
+.confirm-button__loader-wrapper {
+  display: inline-block;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  transform: translateY(-50%);
+}
+
+.modal-client__label-wrapper {
+  position: relative;
+}
+
+.modal-client__label-wrapper:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+.modal-client__label {
+  position: absolute;
+  left: 0;
+  color: var(--text-grey);
+  transition-property:  transform;
+  transform-origin: left;
+  transition-duration: .15s;
+  transition-timing-function: ease-in;
+}
+
+.modal-client-dot {
+  color: var(--purp-main);
+}
+
+.modal-client__input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--background-grey);
+  outline: none;
+}
+
+.modal-client__input_error {
+  border-color: var(--alert);
+}
+
+.modal-client__input+.modal-client__label {
+  transform: translateY(0) scale(1);
+}
+
+.modal-client__input:focus-visible+.modal-client__label, .modal-client__input_active+.modal-client__label {
+  transform: translateY(-100%) scale(.71);
+}
+
+.modal-client__contacts-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  padding: 0 30px;
+  width: 100%;
+  min-height: 35px;
+  background-color: rgba(200, 197, 209, 0.3);
+  transition-property:  transform;
+}
+
+.modal-client__contacts-wrapper_active {
+  padding: 25px 30px;
+}
+
+.modal-client__contacts {
+  width: 100%;
+}
+
+.modal-client__add-contact-button {
+  width: fit-content;
+  padding-left: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  background-image: url('../img/modal/add_contact.svg');
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition-property:  color, background-image;
+  transition-duration: .15s;
+  transition-timing-function: linear;
+}
+
+.modal-client__add-contact-button:hover,
+.modal-client__add-contact-button:focus {
+  background-image: url('../img/modal/add_contact_hover.svg');
+  color: var(--purp-main);
+}
+
+.contact-wrapper {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 37px;
+  transition-duration: .2s;
+}
+
+.contact-wrapper:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.contact-wrapper:last-child {
+  margin-bottom: 25px;
+}
+
+.contact-wrapper__input {
+  padding: 8px 12px 9px;
+  width: 100%;
+  border: none;
+  outline: 1px solid var(--background-grey);
+}
+
+.contact-wrapper__input:focus::placeholder {
+  opacity: 0.5;
+}
+
+.contact-wrapper__input_error {
+  outline: 1px solid var(--alert);
+  contain: layout;
+}
+
+.contact-wrapper__delete-button {
+  position: absolute;
+  right: 0;
+  padding: 0;
+  height: 100%;
+  min-width: 27px;
+  background-color: #E7E5EB;
+  background-image: url('../img/modal/delete_contact.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  transition-property:  transform;
+  transition-duration: .1s;
+  transition-timing-function: ease-in;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+.contact-wrapper__delete-button:hover,
+.contact-wrapper__input:hover+.contact-wrapper__delete-button,
+.contact-wrapper__input_active+.contact-wrapper__delete-button,
+.contact-wrapper__delete-button:focus-within {
+  transform: scaleX(1);
+  outline: 1px solid var(--background-grey);
+} 
+
+.contact-wrapper__delete-button:hover,
+.contact-wrapper__delete-button:focus-within,
+.contact-wrapper__input:hover+.contact-wrapper__delete-button:focus-within {
+  outline-color: var(--alert);
+  background-image: url('../img/modal/delete-contact-hover.svg');
+}
+
+.modal-client__cancel-button {
+  margin: 0 auto;
+  text-decoration: underline;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.modal-client__cancel-button:hover,
+.modal-client__cancel-button:focus {
+  text-decoration: underline dotted;
+}
+
+.modal-client__error-field {
+  margin: 0 auto 9px;
+  max-width: 255px;
+  min-height: 8px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 14px;
+  text-align: center;
+  color: var(--alert);
+}
+
+.modal-error {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  padding: 40px 10px 10px;
+  min-height: 50px;
+  font-size: 12px;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+  border: 2px solid red;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  overflow:initial;
+}
+
+@media (max-width: 480px) {
+  .modal-window {
+    position: relative;
+    margin: 20px 0;
+    padding: 30px 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    background-color: #FFF;
+    z-index: 10;
+  }
+
+  .modal-client__form {
+    padding: 0 15px;
+  }
+
+  .close-modal-button {
+    top: 10px;
+    right: 10px;
+  }
+
+  .modal-client__header {
+    display: inline-block;
+    margin-right: 9px;
+    margin-bottom: 0;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    align-self: initial;
+  }
+
+  .modal-client__id {
+    margin-bottom: 27px;
+  }
+
+  .choices {
+    width: 110px;
+  }
+
+  .modal-client__contacts-wrapper {
+    padding: 0 15px;
+  }
+
+  .modal-client__contacts-wrapper_active {
+    padding: 25px 15px;
+ } 
+
+ .contact-wrapper__input {
+    padding: 9px 36px 8px 6px;
+  }
+}

@@ -1,0 +1,106 @@
+.choices {
+  margin-bottom: 0;
+  flex-shrink: 0;
+  width: 123px;
+  height: 100%;
+  border: none;
+  outline: 1px solid var(--background-grey);
+}
+
+.choices:focus-within {
+  outline: 1px solid black;
+}
+
+/* внутренний контейнер */
+.choices__inner {
+  background-color: #E7E5EB;
+  padding: 0;
+  min-height: 37px;
+  border: none;
+  border-radius: 0;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+/* отступ снизу для выбранного пункта */
+.choices[data-type*=select-one] .choices__inner {
+  padding-bottom: 0px;
+}
+
+/* выбранный пункт */
+.choices__list--single {
+  padding: 10px 12px;
+}
+
+/* внутренний контейнер, если список раскрыт */
+.is-open .choices__inner {
+  border-radius: 0;
+}
+
+/* галочка, исходное состояние */
+.choices[data-type*=select-one]::after {
+  margin-top: -2.5px;
+  position: absolute;
+  top: 41%;
+  right: 16px;
+  content: "";
+  height: 8px;
+  width: 8px;
+  border-style: none;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+  border-color: var(--purp-main);
+  transform: rotate(-45deg);
+  transition: transform .2s ease-out;
+}
+
+/* галочка, ракрытое состояние */
+.choices[data-type*=select-one].is-open::after {
+  margin-top: -2.5px;
+  border-color: var(--purp-main);
+  transform: rotate(-45deg) scale(-1) translate(4px, -4px);
+  top: 41%;
+}
+
+/* выпадающий список */
+.choices__list--dropdown, .choices__list[aria-expanded] {
+  margin: 0;
+  width: 102%;
+  background-color: #F4F3F6;
+  border: 1px solid var(--background-grey);
+  left: -1px;
+}
+
+/* пункты выпадающего списка */
+.choices__list--dropdown .choices__item, .choices__list[aria-expanded] .choices__item {
+  padding: 10px 12px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+/* подсвеченный пункт выпадающего списка */
+.choices__list--dropdown .choices__item--selectable.is-highlighted,
+.choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
+  background: rgba(231, 229, 235, .5);
+}
+
+/* анимация появления выпадающего меню */
+.choices__list--dropdown, .choices__list[aria-expanded] {
+  opacity: 0;
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: all .2s ease-out;
+  transition-delay:  100ms;
+}
+
+.is-active.choices__list--dropdown, .is-active.choices__list[aria-expanded] {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/*сокрытие выбранного вырианта из списка опций */
+.choices__list .is-selected {
+  display: none;
+}
